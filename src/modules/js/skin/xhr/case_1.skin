@@ -1,0 +1,84 @@
+{% config %}
+
+{
+	"request": {
+		"json": "/modules/js/skin/xhr/data.json"
+
+	},
+	"indicate": {
+		"skin": "#txt",
+		"normal": ".normalskin",
+		"loop": ".loopskin",
+		"button": ".buttonskin",
+		"thumbnail": ".thumbnailskin"
+
+	},
+	"override": {}
+}
+
+{% end config %}
+
+{% skin %}
+<br>
+<h1>UI Skin Renderder</h1>
+<br>
+<div class="skin">
+
+	<div class="normalskin">
+
+		{% normal %}
+		<h1>normal</h1>
+		<p>bind data = {{normal}}</p>
+		{% end normal %}
+
+	</div>
+<hr>
+
+	<h1>loop</h1>
+	<ul class="loopskin">
+
+	{% loop %}
+		<li style="margin-top:10px">
+			<span>{{title}}</span><br>
+			<span>{{descript}}</span>
+		</li>
+	{% end loop %}
+
+	</ul>
+
+<hr>
+
+	<div class="buttonskin">
+
+		{% button %}
+		<h1>button</h1>
+		<p>bind data = {{button}}</p>
+		{% end button %}
+
+	</div>
+<hr>
+	
+	<h1>thumbnail</h1>
+	<div class="thumbnailskin">
+	
+		{% thumbnail %}
+		<div style="margin-top:10px">
+		
+			{% empty ["src", "alt"] %}
+			<img src="{{src}}" alt="{{alt}}">
+			{% end empty %}
+
+		</div>
+		{% end thumbnail %}
+
+	</div>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+</div>
+
+{% end skin %}
